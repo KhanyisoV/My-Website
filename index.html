@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Khanyiso Vabaza</title>
+</head>
+<H1 class="welcome-heading"><a id ="refresh" href="index.html">WELCOME TO MY WEBSITE!</a></H1>
+<body>
+
+     <!-- SPLASH SCREEN -->
+  <div id="splash">
+    <img src="Khanyiso.png" alt="Loading...">
+  </div>
+
+    <nav class="navbar">
+        <div class="navbar-container">
+          <!-- Navigation bar -->
+          <ul class="navbar-menu">
+            <li class="navbar-item"><a href="index.html" class="navbar-link-active">Home</a></li>
+            <li class="navbar-item"><a href="About-me.html" class="navbar-link">About</a></li>
+            <li class="navbar-item"><a href="portfolio.html" class="navbar-link">Portfolio</a></li>
+            <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+
+
+      <!-- Grid and Images  -->
+      <div class="image-grid">
+        <div class="grid-item">
+          <img src="insta.jpg" alt="Description 1">
+          <div class="caption"><p class = "handles" onclick="window.location.href ='https://www.instagram.com/khanyiso.dev/'">@khanyiso.dev</p>I document my self-development journey—sharing raw insights, 
+            daily habits, and lessons learned as I grow into my best self.</div>
+        </div>
+        
+        <div class="grid-item">
+          <img src="linkdin.jpg" alt="Description 2">
+          <div class="caption"><p class = "handles" onclick="window.location.href ='https://www.linkedin.com/in/khanyiso-vabaza-761905212/'">@Khanyiso Vabaza</p> <br> <br> I share updates on my latest projects,
+             career milestones, and professional insights.
+            
+            </div>
+        </div>
+        
+        <div class="grid-item">
+          <img src="github.jpg" alt="Description 3">
+          <div class="caption"><p class = "handles" onclick="window.location.href ='https://github.com/KhanyisoV'">@KhanyisoV</p>I actively share code, side projects, and contributions on GitHub. <br>
+            It’s where I collaborate with other developers</div>
+        </div>
+
+      </div>
+</body>
+
+<script>
+
+window.addEventListener('load', function() {
+    setTimeout(function() {
+      document.getElementById('splash').style.display = 'none';
+    }, 2500); // 2.5 seconds total
+  });
+
+</script>
+</html>

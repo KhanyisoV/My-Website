@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contactstyles.css">
+    <title>Contact me</title>
+    <h1 class="About-Me-heading" onclick="window.location.href= 'contact.html'">CONTACT</h1>
+</head>
+<body>
+
+      
+    <nav class="navbar">
+        <div class="navbar-container">
+          <!-- Navigation bar -->
+          <ul class="navbar-menu">
+            <li class="navbar-item"><a href="index.html" >Home</a></li>
+            <li class="navbar-item"><a href="About-me.html"class="navbar-link">About</a></li>
+            <li class="navbar-item"><a href="portfolio.html" class="navbar-link">Portfolio</a></li>
+            <li class="navbar-item"><a href="contact.html"class="navbar-link-active"  class="navbar-link">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <h1 class="About-Me-heading">CONTACT ME</h1>
+
+      <div class="contact-container">
+          <div class="contact-info">
+              <h2 class="contact-title">Let's Connect</h2>
+              <p class="contact-text">Have a project in mind or want to collaborate? Feel free to reach out through any of these channels.</p>
+              
+              <div class="contact-method">
+                  <div class="contact-icon">
+                      <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="contact-details">
+                      <h3>Email</h3>
+                      <p>khanyisovabaza@gmail.com</p>
+                  </div>
+              </div>
+              
+              <div class="contact-method">
+                  <div class="contact-icon">
+                      <i class="fas fa-phone-alt"></i>
+                  </div>
+                  <div class="contact-details">
+                      <h3>Phone</h3>
+                      <p>+27 63 848 9336</p>
+                  </div>
+              </div>
+              
+              <div class="contact-method">
+                  <div class="contact-icon">
+                      <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div class="contact-details">
+                      <h3>Location</h3>
+                      <p>Port Elizabeth, Eastern Cape</p>
+                  </div>
+              </div>
+              
+              <div class="social-links">
+                  <a href="https://github.com/KhanyisoV" class="social-link"><i class="fab fa-github"><img src="github.svg"width ="25px" height="25px"alt=""></i></a>
+                  <a href="https://www.linkedin.com/in/khanyiso-vabaza-761905212/" class="social-link"><i class="fab fa-linkedin-in"><img src="linkedin.svg"width ="25px" height="25px"alt=""></i></a>
+                  <a href="https://www.instagram.com/khanyiso.dev/" class="social-link"><i class="fab fa-instagram"><img src="instagrams.svg"width ="25px" height="25px"alt=""></i></a>
+              </div>
+          </div>
+          
+          <div class="contact-form">
+              <h2 class="contact-title">Send a Message</h2>
+              <form action="https://formspree.io/f/xldrvadv" method="POST">
+                  <div class="form-group">
+                      <label for="name">Your Name</label>
+                      <input type="text" id="name" name="name" class="form-control" required>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="email">Your Email</label>
+                      <input type="email" id="email" name="email" class="form-control" required>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="subject">Subject</label>
+                      <input type="text" id="subject" name="subject" class="form-control" required>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="message">Your Message</label>
+                      <textarea id="message" name="message" class="form-control" required></textarea>
+                  </div>
+                  
+                  <button type="submit" class="submit-btn">
+                      <i class="fas fa-paper-plane"></i> Send Message
+                  </button>
+              </form>
+          </div>
+      </div>
+      <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        const form = document.getElementById('contact-form');
+        const submitBtn = form.querySelector('.submit-btn');
+        
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Change button state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Success state
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                    form.reset();
+                    
+                    // Optional: Hide success message after 3 seconds
+                    setTimeout(() => {
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                    }, 3000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                // Error state
+                submitBtn.innerHTML = '<i class="fas fa-times"></i> Try Again';
+                alert('Oops! There was a problem sending your message.');
+                console.error('Error:', error);
+            } finally {
+                submitBtn.disabled = false;
+            }
+        });
+
+
+       
+    </script>
+</body>
+</html>
